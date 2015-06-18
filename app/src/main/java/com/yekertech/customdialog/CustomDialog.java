@@ -110,6 +110,7 @@ public class CustomDialog extends Dialog {
 		super.onAttachedToWindow();
 		currentVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
 		mRadioView.updateVolume(currentVolume*100/maxVolume);
+		mRadioView.setSelected(0);
 	}
 	
 	public CustomDialog(Context context/*, WindowManagerFuncs windowManagerFuncs*/) {
@@ -276,11 +277,11 @@ public class CustomDialog extends Dialog {
 			{
 				int height=mVolumeSelectMin.getHeight()*(100-mCurVolume)/100;
 				int width=mVolumeSelectMin.getWidth();
-				canvas.drawBitmap(mVolumeAdd,432,383,null);
-				canvas.drawBitmap(mVolumeAdd,432,700,null);
-				canvas.drawBitmap(mVolumeSelectMax, 448,283, null);
+				canvas.drawBitmap(mVolumeAdd,432,303,null);
+				canvas.drawBitmap(mVolumeSub,432,700,null);
 				canvas.drawBitmap(mVolumeSlide, 514, 489,null);
 				canvas.drawText(""+mCurVolume,560,536,  pt);
+				canvas.drawBitmap(mVolumeSelectMax,448,348,null);
 				canvas.drawBitmap(mVolumeSelectMin,new Rect(0,0,width,height),new Rect(448,348,width+448,height+348), null);
 				canvas.drawBitmap(mVolumeTips,634,822,null);
 			}
@@ -366,7 +367,7 @@ public class CustomDialog extends Dialog {
 			switch (keyCode) {		
 			case KeyEvent.KEYCODE_DPAD_LEFT:
 				mCurSelect--;
-				if(mCurSelect<1) mCurSelect=1;
+				if(mCurSelect<1) mCurSelect=0;
 				this.invalidate();
 				break;
 			case KeyEvent.KEYCODE_DPAD_RIGHT:
@@ -419,7 +420,7 @@ public class CustomDialog extends Dialog {
 //				break;
 			case KeyEvent.KEYCODE_DPAD_UP:			
 			case KeyEvent.KEYCODE_DPAD_DOWN:
-//				if(mCurSelect==0)
+				if(mCurSelect==0)
 				{
 					 if(mOnSelect != null)
 					   {
