@@ -21,7 +21,8 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				new CustomDialog(MainActivity.this).show();
+//				new CustomDialog(MainActivity.this).show();
+				new LockScreenDialog(MainActivity.this).show();
 			}
 		});
 	}

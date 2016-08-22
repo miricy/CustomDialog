@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#000000"
     tools:context="com.yekertech.customdialog.MainActivity" >
 
     <TextView
@@ -13,6 +14,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
+
+    <com.yekertech.customdialog.GradientTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/textView1"
+        android:background="@drawable/shape_lock"
+        android:textSize="24sp"
+        android:padding="20dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:textColor="#000000"
+        android:text=" 请 滑 动 解 锁 "/>
 
     <ImageButton
         android:id="@+id/imageButton1"
